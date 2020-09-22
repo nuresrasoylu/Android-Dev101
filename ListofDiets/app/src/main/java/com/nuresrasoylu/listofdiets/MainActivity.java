@@ -41,6 +41,27 @@ public class MainActivity extends AppCompatActivity {
         Bitmap peanutbutter = BitmapFactory.decodeResource(getApplicationContext().getResources(),R.drawable.peanutbutter);
         Bitmap snackballs = BitmapFactory.decodeResource(getApplicationContext().getResources(),R.drawable.snackballs);
 
+        final ArrayList<String> foodRecipe = new ArrayList<>();
+        foodRecipe.add("Ingredients for Fit Browni Recipe:\n\n" +
+                "1 small banana\n" +
+                "2 eggs\n" +
+                "8 tiny square dark chocolate bars\n" +
+                "1 tablespoon of cocoa\n" +
+                "1 tablespoon of honey\n" +
+                "3 tablespoons of whole wheat flour (not heaped)\n" +
+                "2 teaspoons of butter\n" +
+                "1 packet of baking powder");
+        foodRecipe.add("I think don't bother preparing it. Buy it directly and spread it to your bread!");
+        foodRecipe.add("Ingredients for Cocoa Oat Bran Balls Recipe: \n\n" +
+                "7 pieces\n" +
+                "3 dried apricots\n" +
+                "1 small banana\n" +
+                "2 teaspoons of oat bran\n" +
+                "4 tablespoons ground hazelnuts (not roasted)\n" +
+                "1 dessert spoon cocoa\n" +
+                "2 tablespoons milk\n" +
+                "2 teaspoons of cinnamon");
+
         final ArrayList<Bitmap> foodImages =new ArrayList<>();
 
         foodImages.add(fitbrownie);
@@ -62,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(),DetailActivity.class);
                 intent.putExtra("name",foodNames.get(position));
                 intent.putExtra("calorie",foodCalories.get(position));
+                intent.putExtra("recipe",foodRecipe.get(position));
                 Singleton singleton = Singleton.getInstance();
                 singleton.setChosenImage(foodImages.get(position));
 
